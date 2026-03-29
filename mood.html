@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moodpoem</title>
+  <link rel="stylesheet" href=".//mood.css">
+</head>
+
+  <header>
+      <h1>Mood Poem</h1>
+      <p>Pick a mood. Find your words.</p>
+    </header>
+    <main>
+    <section class="moods">
+        <button>Rain</button>
+        <button>Fire</button>
+        <button>Calm</button>
+        <button>Midnight</button>
+      </section>
+
+     
+      <section class="prompt">
+        <p>your word prompt</p>
+        <span>...</span>
+      </section>
+      <section class="editor">
+        <input type="text" id="poem-title" placeholder="Give your poem a title..." />
+
+        <div class="toolbar">
+          <span id="word-count">0 words</span>
+          <div class="toolbar-buttons">
+            <button id="help-btn">Help</button>
+            <button id="save-btn">Save poem</button>
+            <button id="copy-btn">Copy</button>
+            <button id="clear-btn">Clear</button>
+          </div>
+        </div>
+        <textarea id="poem-body" placeholder="Start writing your poem..."></textarea>
+      </section>
+
+      <section class="help-panel" id="help-panel">
+        <p class="help-title">Writing hints</p>
+        <ul id="help-list"></ul>
+      </section>
+
+      <section class="saved-section">
+        <p class="saved-title">Saved poems</p>
+        <div id="saved-list"></div>
+      </section>
+
+    </main>
+
+    <script src="./mood.js"></script>
+</body>
+</html>

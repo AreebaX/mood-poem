@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lora:ital@0;1&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #C4785A;
+  font-family: 'Lora', serif;
+  color: #FFF0E8;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #A85F42;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #FFF0E8;
+  text-shadow: 0 2px 4px #8B4A2F;
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 14px;
+  color: #F0C9B0;
+  font-style: italic;
+}
+
+/* ── Mood buttons ── */
+.moods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.moods button {
+  background: #D4875F;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 22px;
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  color: #FFF0E8;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  box-shadow: 0 4px 0 #8B4A2F, 0 4px 8px rgba(80,30,10,0.25);
+  transition: box-shadow 0.1s, transform 0.1s, background 0.15s;
+}
+
+.moods button:hover {
+  background: #E09470;
+}
+
+.moods button:active,
+.moods button.active {
+  background: #A85F42;
+  box-shadow: 0 1px 0 #8B4A2F, 0 1px 3px rgba(80,30,10,0.2);
+  transform: translateY(3px);
+}
+
+/* ── Word prompt ── */
+.prompt {
+  background: #B8633F;
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto 1.75rem;
+  box-shadow: inset 0 3px 8px rgba(80,30,10,0.3),
+              0 1px 0 #D4875F;
+}
+
+.prompt p {
+  font-size: 12px;
+  color: #F0C9B0;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.prompt span {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #FFF0E8;
+}
+
+/* ── Editor ── */
+.editor {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#poem-title {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid #D4875F;
+  padding: 8px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #FFF0E8;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+#poem-title::placeholder {
+  color: #E8AA88;
+  font-style: italic;
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toolbar-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#word-count {
+  font-size: 12px;
+  color: #F0C9B0;
+  font-style: italic;
+}
+
+.toolbar-buttons button {
+  background: #D4875F;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-family: 'Lora', serif;
+  font-size: 12px;
+  color: #FFF0E8;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #8B4A2F;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.toolbar-buttons button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #8B4A2F;
+}
+
+/* ── Help panel ── */
+.help-panel {
+  display: none;
+  max-width: 600px;
+  margin: 1rem auto;
+  background: #B8633F;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  box-shadow: inset 0 3px 8px rgba(80,30,10,0.3);
+}
+
+.help-panel.open {
+  display: block;
+}
+
+.help-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: #FFF0E8;
+  margin-bottom: 10px;
+}
+
+.help-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.help-panel ul li {
+  font-size: 13px;
+  color: #F0C9B0;
+  font-style: italic;
+  padding: 5px 0;
+  border-bottom: 0.5px solid #A85F42;
+  line-height: 1.5;
+}
+
+/* ── Saved poems ── */
+.saved-section {
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+}
+
+.saved-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: #FFF0E8;
+  margin-bottom: 10px;
+}
+
+.saved-card {
+  background: #B8633F;
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 0 #8B4A2F;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.saved-card:hover {
+  transform: translateY(-1px);
+}
+
+.saved-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: #FFF0E8;
+  margin-bottom: 2px;
+}
+
+.saved-card-meta {
+  font-size: 11px;
+  color: #F0C9B0;
+  font-style: italic;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 0.5px solid #D4875F;
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #F0C9B0;
+  cursor: pointer;
+  font-family: 'Lora', serif;
+}
+
+/* ── Textarea ── */
+.editor textarea {
+  width: 100%;
+  min-height: 220px;
+  background: #B8633F;
+  border: none;
+  border-radius: 14px;
+  padding: 1.25rem;
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  color: #FFF0E8;
+  line-height: 1.8;
+  resize: vertical;
+  outline: none;
+  box-shadow: inset 0 4px 10px rgba(80,30,10,0.35),
+              0 1px 0 #D4875F;
+}
+
+.editor textarea::placeholder {
+  color: #E8AA88;
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .moods button {
+    padding: 6px 16px;
+    font-size: 12px;
+  }
+
+  .prompt span {
+    font-size: 20px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
